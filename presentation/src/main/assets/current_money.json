@@ -1,0 +1,32 @@
+[
+  {
+    "symbol": "USD",
+    "currencies": [
+      {
+        "flag": "PEN",
+        "buy": "3.30",
+        "sell": "3.51"
+      },
+      {
+        "flag": "EUR",
+        "buy": "1.12",
+        "sell": "1.14"
+      }
+    ]
+  },
+  {
+    "symbol": "PEN",
+    "currencies": [
+      {
+        "flag": "USD",
+        "buy": "0.25",
+        "sell": "0.29"
+      },
+      {
+        "flag": "EUR",
+        "buy": "3.80",
+        "sell": "4.00"
+      }
+    ]
+  }
+]

@@ -1,0 +1,63 @@
+[
+  {
+    "country": "European Union",
+    "symbol": "EUR",
+    "image": "https://image.freepik.com/vector-gratis/ilustracion-bandera-union-europea_53876-27018.jpg",
+    "currencies": [
+      {
+        "flag": "EUR",
+        "rate": "1.0000"
+      },
+      {
+        "flag": "USD",
+        "rate": "0",
+        "buy": "1.12",
+        "sell": "1.14"
+      },
+      {
+        "flag": "PEN",
+        "rate": "0",
+        "buy": "0.23",
+        "sell": "0.25"
+      }
+    ]
+  },
+  {
+    "country": "United States",
+    "symbol": "USD",
+    "image": "https://image.freepik.com/vector-gratis/original-simple-bandera-estados-unidos-america_100456-79.jpg",
+    "currencies": [
+      {
+        "flag": "EUR",
+        "rate": "1.12",
+        "buy": "0.88",
+        "sell": "0.90"
+      },
+      {
+        "flag": "PEN",
+        "rate": "0",
+        "buy": "3.30",
+        "sell": "3.51"
+      }
+    ]
+  },
+  {
+    "country": "Perú",
+    "symbol": "PEN",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/1200px-Flag_of_Peru.svg.png",
+    "currencies": [
+      {
+        "flag": "EUR",
+        "rate": "0.25",
+        "buy": "3.80",
+        "sell": "4.00"
+      },
+      {
+        "flag": "USD",
+        "rate": "0",
+        "buy": "3.30",
+        "sell": "3.51"
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+include ':data'
+include ':library'
+include ':domain'
+include ':data'
+include ':presentation'
+rootProject.name = "BCP"
