@@ -2,9 +2,13 @@ package com.example.bcp.features.exchange
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +18,7 @@ import com.example.bcp.features.exchange.di.ExchangeComponent
 import com.example.bcp.features.money.MoneyActivity
 import com.example.domain.entity.Currency
 import com.example.domain.entity.Money
+import kotlinx.android.synthetic.main.fragment_exchange.*
 import javax.inject.Inject
 
 class ExchangeFragment : BaseFragment(), ExchangeView {
@@ -94,6 +99,7 @@ class ExchangeFragment : BaseFragment(), ExchangeView {
         super.onViewInjected(savedInstanceState)
         this.presenter.attachView(this)
         this.presenter.getCurrentMoney()
+        initReceiver()
     }
 
     fun goToMoney(type: Int) {
@@ -164,5 +170,30 @@ class ExchangeFragment : BaseFragment(), ExchangeView {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    fun initReceiver() {
+        val intentFilter = IntentFilter("android.intent.action.AIRPLANE_MODE_CHANGED")
+
+        val receiver: BroadcastReceiver = object : BroadcastReceiver() {
+            override fun onReceive(
+                context: Context?,
+                intent: Intent?
+            ) {
+                Log.d("AirplaneMode", "Service state changed")
+
+                val status = context?.let { isAirPlane(it) }
+                binding.btnOperation.isEnabled = status!!
+            }
+        }
+
+        activity?.registerReceiver(receiver, intentFilter)
+    }
+
+    fun isAirPlane(context: Context): Boolean {
+        return Settings.System.getInt(
+            context.contentResolver,
+            Settings.System.AIRPLANE_MODE_ON, 0
+        ) != 0
     }
 }
